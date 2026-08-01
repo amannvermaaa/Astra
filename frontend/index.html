@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra | Interplanetary Travel</title>
+    <meta name="description" content="Astra is revolutionizing space travel. Book your mission to Mars and beyond.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header id="navbar">
+        <div class="logo">ASTRA</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#mars">Mars Mission</a></li>
+                <li><a href="#orbital">Orbital Flights</a></li>
+                <li><a href="#future">The Future</a></li>
+                <li><a href="#register" class="btn-primary">Join Waitlist</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <main class="scroll-container">
+        
+        <!-- Section 1: Home / Hero -->
+        <section id="home" class="hero-section" style="background-image: url('assets/starship_launchpad_1784305141135.jpg');">
+            <div class="overlay"></div>
+            <div class="content fade-in-up">
+                <h5>UPCOMING LAUNCH</h5>
+                <h1>TO THE STARS<br>AND BEYOND</h1>
+                <p>Astra is making life multiplanetary. Our reliable reusable rockets are transforming humanity's ability to access space.</p>
+                <a href="#register" class="btn-outline">BOOK A FLIGHT <span class="arrow">→</span></a>
+            </div>
+        </section>
+
+        <!-- Section 2: Mars Mission -->
+        <section id="mars" class="hero-section" style="background-image: url('assets/mars_background_1784305162712.jpg');">
+            <div class="overlay"></div>
+            <div class="content fade-in-up">
+                <h5>MISSION 02</h5>
+                <h1>DESTINATION MARS</h1>
+                <p>We are building a self-sustaining city on Mars to ensure the long-term survival of human consciousness.</p>
+                <a href="#register" class="btn-outline">EXPLORE MARS <span class="arrow">→</span></a>
+            </div>
+        </section>
+
+        <!-- Section 3: Orbital Flights -->
+        <section id="orbital" class="hero-section" style="background-image: url('assets/rocket_launch_ocean_1784305173889.jpg');">
+            <div class="overlay"></div>
+            <div class="content fade-in-up">
+                <h5>COMMERCIAL TRAVEL</h5>
+                <h1>EARTH TO EARTH</h1>
+                <p>Travel anywhere on Earth in under an hour. Astra point-to-point transportation is the future of global travel.</p>
+                <a href="#register" class="btn-outline">LEARN MORE <span class="arrow">→</span></a>
+            </div>
+        </section>
+
+        <!-- Section 4: The Future -->
+        <section id="future" class="hero-section" style="background-image: url('assets/astronaut_1784305204789.jpg');">
+            <div class="overlay"></div>
+            <div class="content fade-in-up">
+                <h5>BECOME AN ASTRONAUT</h5>
+                <h1>ADVANCING HUMAN SPACEFLIGHT</h1>
+                <p>Since returning human spaceflight capabilities, Astra is helping build a new era where millions will explore space.</p>
+                <a href="#register" class="btn-outline">JOIN A MISSION <span class="arrow">→</span></a>
+            </div>
+        </section>
+
+        <!-- Section 5: Registration Form -->
+        <section id="register" class="form-section" style="background-image: url('assets/rocket_sunset_1784305193964.jpg');">
+            <div class="overlay form-overlay"></div>
+            <div class="form-container fade-in-up">
+                <h2>SECURE YOUR SEAT</h2>
+                <p>Join the waitlist for our upcoming orbital and interplanetary missions.</p>
+                
+                <form id="registration-form">
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Elon Musk">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="elon@astra.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="destination">Select Destination</label>
+                        <select id="destination" name="destination" required>
+                            <option value="" disabled selected>Select a destination</option>
+                            <option value="orbital">Orbital Flight</option>
+                            <option value="moon">Lunar Base</option>
+                            <option value="mars">Mars City</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit" id="submit-btn">JOIN WAITLIST</button>
+                    <div id="form-message" class="hidden"></div>
+                </form>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="#">Astra © 2026</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

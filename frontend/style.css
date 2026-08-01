@@ -1,0 +1,410 @@
+:root {
+    --primary-color: #ffffff;
+    --background-dark: #000000;
+    --accent-color: #ff3366;
+    --text-muted: #cccccc;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--background-dark);
+    color: var(--primary-color);
+    overflow-x: hidden;
+}
+
+/* Scroll snapping for the main container */
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+.scroll-container::-webkit-scrollbar-track {
+    background: #111;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+/* Navigation Bar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: background 0.3s ease, padding 0.3s ease;
+}
+
+header.scrolled {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 15px 50px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links li a:not(.btn-primary)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:not(.btn-primary):hover::after {
+    width: 100%;
+}
+
+.nav-links li a:hover {
+    color: #f0f0f0;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--background-dark) !important;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 800;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-outline:hover::before {
+    left: 0;
+}
+
+.btn-outline:hover {
+    color: var(--background-dark);
+}
+
+.btn-outline .arrow {
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-outline:hover .arrow {
+    transform: translateX(5px);
+}
+
+
+/* Hero Sections */
+.hero-section, .form-section {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    scroll-snap-align: start;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+}
+
+.form-overlay {
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: left;
+    max-width: 800px;
+    padding: 0 50px;
+    width: 100%;
+    margin-top: 100px; /* offset for navbar */
+}
+
+.content h5 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+}
+
+.content h1 {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    max-width: 600px;
+}
+
+/* Animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1), transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Registration Form */
+.form-container {
+    position: relative;
+    z-index: 10;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.form-container h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus, .input-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.input-group select option {
+    background: #111;
+    color: white;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    background-color: #f0f0f0;
+}
+
+.hidden {
+    display: none;
+}
+
+#form-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.success-msg {
+    background: rgba(46, 213, 115, 0.2);
+    color: #2ed573;
+    border: 1px solid #2ed573;
+}
+
+.error-msg {
+    background: rgba(255, 71, 87, 0.2);
+    color: #ff4757;
+    border: 1px solid #ff4757;
+}
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* Responsive */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 3rem;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .form-container {
+        margin: 20px;
+    }
+}

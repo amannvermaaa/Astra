@@ -16,4 +16,6 @@ I wanted to focus heavily on the **UI/UX**, making sure it feels super premium a
 - **Frontend:** Vanilla HTML, CSS, and JavaScript. (No frameworks used here—just pure DOM manipulation and CSS magic to keep things fast).
 - **Backend:** Python & Flask.
 - **Database:** SQLite.
+
+
 🔴 live link- astra-zeta-murex.vercel.app

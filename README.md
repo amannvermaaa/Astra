@@ -18,4 +18,4 @@ I wanted to focus heavily on the **UI/UX**, making sure it feels super premium a
 - **Database:** SQLite.
 
 
-🔴 live link- astra-zeta-murex.vercel.app
+🔴 live link- https://astra-zeta-murex.vercel.app/
